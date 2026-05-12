@@ -1,0 +1,33 @@
+<%- include('partials/navbar') %>
+
+<div class="container py-4">
+    <h1 class="mb-4">Members</h1>
+
+    <ul class="list-group">
+        <% users.forEach(user => { %>
+            <li class="list-group-item d-flex align-items-center">
+                <%= user.username %> (<%= user.status %>)
+                <form action="/makeadmin" method="post">
+                    <input type="hidden" name="username" value="<%= user.username %>">
+                    <button class="btn btn-primary rounded-pill px-3 bg-danger border-danger m-1">Promote to Admin</button>
+                </form> 
+                <form action="/makeuser" method="post">
+                    <input type="hidden" name="username" value="<%= user.username %>">
+                    <button class="btn btn-primary rounded-pill px-3 bg-success border-success m-1">Demote to User</button>
+                </form> 
+            </li>
+        <% }) %>
+    </ul>
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary rounded-pill px-3 me-2">
+            Home
+        </a>
+
+        <a href="/logout" class="btn btn-primary rounded-pill px-3">
+            Log Out
+        </a>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

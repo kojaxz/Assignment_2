@@ -1,0 +1,15 @@
+<%- include('partials/navbar') %>
+
+<div class="container d-flex flex-column align-items-center vh-100"style="padding-top: 25vh;">
+    <h1 class="mb-4">Log In</h1>
+    <form action="/loggingin" method="post"class="d-flex flex-column align-items-center">
+
+        <input name="email"type="email"placeholder="Email"class="form-control mb-3">
+
+        <input name="password"type="password"placeholder="Password"class="form-control mb-3">
+
+        <button class="btn btn-primary rounded-pill px-3">Submit</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
